@@ -1,0 +1,60 @@
+Install Mongo DB https://docs.mongodb.com/manual/installation/
+
+Create database in mogo console:
+
+```
+$ mongo
+...
+> show dbs
+admin   0.000GB
+config  0.000GB
+local   0.000GB
+> use ruffles
+switched to db ruffles
+> db.cards.insertMany([{
+    title: 'Finish Ruffles',
+    description: ''
+  }, {
+    title: 'Create Users',
+    description: ''
+  }, {
+    title: 'MongoDB',
+    description: ''
+  }]);
+{
+	"acknowledged" : true,
+	"insertedIds" : [
+		ObjectId("5a658b1ab2f29db070c91603"),
+		ObjectId("5a658b1ab2f29db070c91604"),
+		ObjectId("5a658b1ab2f29db070c91605")
+	]
+}
+> db.lists.insertOne({
+  title: 'Todo',
+  cards: [
+		ObjectId("5a658b1ab2f29db070c91603"),
+		ObjectId("5a658b1ab2f29db070c91604"),
+		ObjectId("5a658b1ab2f29db070c91605")
+  ]
+});
+
+
+
+> db.lists.insertOne({
+  title: 'Todo',
+  cards: [{
+    id: 1,
+    title: 'Finish Ruffles',
+    description: ''
+  }, {
+    id: 2,
+    title: 'Create Users',
+    description: ''
+  }, {
+    id: 3,
+    title: 'MongoDB',
+    description: ''
+  }]
+});
+
+```
